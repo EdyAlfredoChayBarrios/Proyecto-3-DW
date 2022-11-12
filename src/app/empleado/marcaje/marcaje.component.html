@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css"
+  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<div>
+  <!--Login *ngIf="element == true" -->
+
+  <div  class="container"> 
+    <div class="row">
+      <div class="col-md">
+        <h1>MARCAJE</h1>
+      </div>
+      <div class="col-">
+        <button type="button" class="btn btn-link" (click)="salir()">Salir</button>
+      </div>
+    </div>
+      <!-- <a href="#" [routerLink]="['/registrar']" (click)="ingreso(pass.value,email.value)">Registrarse</a> -->
+      <!-- <table class="table table-bordered">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th width="220px">Opciones</th>
+        </tr>
+        <tr *ngFor="let empleados of empleado">
+          <td>{{ empleados.id_empleado }}</td>
+          <td>{{ empleados.nombres }}</td>
+          <td>{{ empleados.apellidos }}</td>
+          <td>
+          </td>
+        </tr>
+      </table> -->
+      <button type="button" class="btn btn-primary" (click)="marcar()">Marcar</button>
+      <br>
+      <br>
+      <button type="button" class="btn btn-primary" (click)="verCalculos()">Ver Calculos</button>
+    </div>
+
+
+
+
+
+
+       
+      <table class="table table-bordered">
+        <tr>
+          <th>ID</th>
+          <th>Distancia</th>
+          <th>Hora</th>
+   
+        </tr>
+        <tr *ngFor="let calculo of calculo">
+          <td>{{ calculo.idcalculo }}</td>
+          <td>{{ calculo.distancia }}</td>
+          <td>{{ calculo.hora }}</td>
+          
+        </tr>
+      </table>
+   
+  </div>

@@ -1,0 +1,209 @@
+<link rel="stylesheet" href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css"
+  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<div>
+  <div  class="container"> 
+    <div class="row">
+      <div class="col-md">
+        <h1>HISTORIAL</h1>
+      </div>
+      <div class="col-">
+        <button type="button" class="btn btn-link" (click)="salir()">Salir</button>
+      </div>
+    </div>
+
+    <div class="alert alert-primary" role="alert" *ngIf="mensaje == false">
+      A simple primary alert—check it out!
+    </div>
+    <hr style="color:black;" />
+
+    <div class="row">
+   
+      <div class="col-4">
+      <label for="exampleInputEmail1" class="form-label">Usuario</label>
+      <input #email type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+      </div>
+
+      <div class="col-2">
+        <br>
+        
+        <button type="button" class="btn btn-info  btn-sm" (click)="salir()">Buscar</button>
+      </div>
+
+      <div class="col-2">
+        <br>
+        
+        <button type="button" class="btn btn-info  btn-sm" (click)="imprimir()">Ver reporte general</button>
+
+        
+      </div>
+
+
+
+      <div class="col-2">
+        <br>
+        
+        <button type="button" class="btn btn-info  btn-sm" (click)="imprimirTarde()">Ver reporte general tarde</button>
+
+        
+      </div>
+
+
+
+      <div class="col-2">
+        <br>
+        
+        <button type="button" class="btn btn-info  btn-sm" (click)="imprimirSalidaAnticipada()">Ver reporte general salida anticipadas</button>
+
+        
+      </div>
+
+    </div> 
+    <hr style="color: #0056b2;" />
+
+
+
+     
+    <div class="col-">
+      <button type="button" class="btn btn-info  btn-sm" (click)="verDepartamento()">Ver departamentos</button>
+      
+    </div>
+    <br>
+    <div class="table-responsive" *ngIf="personas == true">
+      <table class="table table-bordered table-dark">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th width="360px">Opciones</th>
+        </tr>
+      </thead>
+        <tr *ngFor="let empleados of empleado">
+          <td>{{ empleados.id_empleado }}</td>
+          <td>{{ empleados.nombres }}</td>
+          <td>{{ empleados.apellidos }}</td>
+          <td> 
+            <button type="button" class="btn btn-primary" style="margin: 10px;"  (click)="verHorarios(empleados.id_empleado, empleados.nombres, empleados.apellidos)">Ver Horarios</button>
+            <button type="button" class="btn btn-warning" (click)="editar(empleados.id_empleado)">Editar</button>
+            <button type="button" class="btn btn-danger" style="margin:10px" (click)="borrar(empleados.id_empleado)"> Eliminar </button>
+            
+          </td>
+        </tr>
+      </table>
+
+
+
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+    <div *ngIf="departamentos == true" class="table-responsive">
+      <div class="row">
+        <div class="col-md">
+          <h2>{{nombreCompleto}}</h2>
+        </div>
+
+      
+        <div class="col-">
+          <button type="button" class="btn btn-link" (click)="regresar()">Regresar</button>
+        </div>
+      </div>
+
+    
+      <br>
+      <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+        
+            <th width="360px">Opciones</th>
+          </tr>
+        </thead>
+          <tr *ngFor="let departamentoTodos of departamentoTodos">
+            <td>{{ departamentoTodos.id_departamento }}</td>
+            <td>{{ departamentoTodos.nombre_departamento }}</td>
+          
+            <td> 
+              
+              <button type="button" class="btn btn-success" (click)="imprimirHistorial(departamentoTodos.id_departamento, departamentoTodos.nombre_departamento)">Ver reporte</button>
+            
+              
+            </td>
+          </tr>
+        </table>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div *ngIf="horarios == true" class="table-responsive">
+      <div class="row">
+        <div class="col-md">
+          <h2>{{nombreCompleto}}</h2>
+        </div>
+
+      
+        <div class="col-">
+          <button type="button" class="btn btn-link" (click)="regresar()">Regresar</button>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <br>
+        
+        <button type="button" class="btn btn-info  btn-sm" (click)="crearPdfEmpleadoIndividual()">Ver reporte</button>
+
+        
+      </div>
+      <br>
+    <table class="table table-bordered table-info " >
+      <thead>
+      <tr>
+        <th>fecha</th>
+        <th>hora</th>
+        <th>e/s</th>
+        
+      </tr>
+    </thead>
+      <tr *ngFor="let horario of horario">
+        <td>{{ horario.fecha }}</td>
+        <td>{{ horario.hora }}</td>
+        <td>{{ horario.se }}</td>
+      </tr>
+    </table>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    
+
+  </div>
+
+</div>
